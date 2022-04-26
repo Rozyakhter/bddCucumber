@@ -18,11 +18,16 @@ public class LogInCode {
 
 	@Given("The user is on the logIn page")
 	public void the_user_is_on_the_logIn_page() throws Exception {
-		System.out.println("This is a test");
+		
 		System.setProperty(chromeDriver, driverLocation);
 		driver = new ChromeDriver();
 		driver.get(url);
 		Thread.sleep(3000);
+	}
+	
+	@And("user maximize the window")
+	public void user_maximize_the_window() {
+	    driver.manage().window().maximize();
 	}
 
 	@Given("provides valid userID")
@@ -32,11 +37,7 @@ public class LogInCode {
 
 	}
 	
-	@Given("user maximize the window")
-	public void user_maximize_the_window() {
-	    driver.manage().window().maximize();
-	}
-
+	
 	@Given("provides valid password")
 	public void provides_valid_password() throws Exception {
 		driver.findElement(logInpsXpath).sendKeys("admin123");
